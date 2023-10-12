@@ -1,0 +1,46 @@
+create database SAGAdados;
+use SAGAdados;
+
+create table empresa_cliente(
+	id_empresa int primary key auto_increment,
+    nome_fantasia varchar(50) not null,
+    cnpj varchar(18) not null,
+    razao_social varchar(50) not null,
+    atividade varchar(50) not null default 'Ambiental',
+    porte varchar(50) not null default 'Médio',
+    email varchar(50) not null,
+    senha varchar(10) not null
+);
+
+create table funcionario(
+	id_funcionario int primary key auto_increment,
+    nome varchar(50) not null,
+    cpf varchar(14) not null,
+    cargo varchar(50) not null default 'Engenheiro',
+    endereco varchar(50) not null,
+    email varchar(50) not null,
+    telefone varchar(20) not null,
+    senha varchar(10) not null
+);
+
+create table formulario(
+	id_formulario int primary key auto_increment,
+    conformiade varchar(15) not null,
+    categoria varchar(50) not null,
+    empresa_fk int not null,
+    constraint empresa_fk
+		foreign key(empresa_fk) references empresa_cliente (id_empresa),
+	funcionario_fk int not null,
+	constraint funcionario_fk
+		foreign key(funcionario_fk) references funcionario (id_funcionario)
+);
+
+create table pergunta(
+	id_pergunta int primary key auto_increment,
+    pergunta varchar(200) not null,
+    pontuacao varchar(5) not null,
+    imagem_doc blob,
+    formulario_fk int not null,
+	constraint formulario_fk
+		foreign key(formulario_fk) references formulario (id_formulario)
+);
