@@ -4,11 +4,19 @@ import db.DB;
 
 public class DaoFactory {
 
-	public static SellerDao createSellerDao() {
-		return new SellerDaoJDBC(DB.getConnection());
+	public static FormularioDao createSellerDao() {
+		return new FormularioDaoJDBC(DB.getConnection());
 	}
 	
-	public static DepartmentDao createDepartmentDao() {
-		return new DepartmentDaoJDBC(DB.getConnection());
+	public static FuncionarioDao createDepartmentDao() {
+		return new FuncionarioDaoJDBC(DB.getConnection());
+	}
+
+	public static Empresa_clienteDao createSellerDao() {
+		return new Empresa_clienteDaoJDBC(DB.getConnection());
+	}
+
+	public static PerguntaDao createSellerDao() {
+		return new PerguntaDaoJDBC(DB.getConnection());
 	}
 }
