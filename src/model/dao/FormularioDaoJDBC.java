@@ -9,7 +9,6 @@ public class FormularioDAOJDBC {
 
     // Construtor que recebe a conexão
     public FormularioDAOJDBC(Connection connection) {
-    public FormularioDAO(Connection connection) {
         this.connection = connection;
     }
 
