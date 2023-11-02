@@ -4,11 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class FormularioDAOJDBC {
+public class FormularioDaoJDBC {
     private Connection connection; // A conexão JDBC com o banco de dados
 
     // Construtor que recebe a conexão
-    public FormularioDAOJDBC(Connection connection) {
+    public FormularioDaoJDBC(Connection connection) {
         this.connection = connection;
     }
 
