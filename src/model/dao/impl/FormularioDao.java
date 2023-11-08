@@ -8,10 +8,10 @@ import model.dao.entites.Formulario;
 
     public interface FormularioDao {
 
-        void insert(Formulario obj);
-        void update(Formulario obj);
-        void deleteById(Integer id);
-        Formulario findById(Integer id);
+        void insert(Formulario formulario);
+        void update(Formulario formulario);
+        void deleteById(int id);
+        Formulario findById(int id);
         List<Formulario> findAll();
     }
 
