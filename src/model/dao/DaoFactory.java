@@ -9,7 +9,7 @@ public class DaoFactory {
 		return new FormularioDaoJDBC(DB.getConnection());
 	}
 	
-	public static FuncionarioDao createDepartmentDao() {
-		return new FuncionarioDaoJDBC(DB.getConnection());
-	}
+//	public static FuncionarioDao createFuncionarioDao() {
+//		return new FuncionarioDaoJDBC(DB.getConnection());
+//	}
 }
