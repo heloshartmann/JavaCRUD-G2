@@ -1,13 +1,15 @@
+package model.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class FormularioDAO {
+public class FormularioDaoJDBC {
     private Connection connection; // A conexão JDBC com o banco de dados
 
     // Construtor que recebe a conexão
-    public FormularioDAO(Connection connection) {
+    public FormularioDaoJDBC(Connection connection) {
         this.connection = connection;
     }
 
