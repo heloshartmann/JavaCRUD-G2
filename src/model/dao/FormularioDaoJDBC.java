@@ -5,10 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 4345b6e7c5f3278890f7507242e0f619f721a1fa
 public class FormularioDaoJDBC {
     private Connection connection; // A conexão JDBC com o banco de dados
 
