@@ -4,23 +4,25 @@ public class Funcionario {
     private int id_funcionario;
     private String nome;
     private String cpf;
-    private String telefone;
+    private String cargo;
     private String cidade;
     private String estado;
-    private String cargo;
+    private String email;
+    private String telefone;
     private String senha;
 
     public Funcionario() {
     }
 
-    public Funcionario(int id_funcionario, String nome, String cpf, String telefone, String cidade, String estado, String cargo, String senha) {
+    public Funcionario(int id_funcionario, String nome, String cpf, String cargo, String cidade, String estado, String email, String telefone, String senha) {
         this.id_funcionario = id_funcionario;
         this.nome = nome;
         this.cpf = cpf;
-        this.telefone = telefone;
+        this.cargo = cargo;
         this.cidade = cidade;
         this.estado = estado;
-        this.cargo = cargo;
+        this.email = email;
+        this.telefone = telefone;
         this.senha = senha;
     }
 
@@ -48,12 +50,12 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     public String getCidade() {
@@ -72,12 +74,20 @@ public class Funcionario {
         this.estado = estado;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getSenha() {

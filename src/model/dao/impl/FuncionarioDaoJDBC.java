@@ -19,16 +19,17 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void inserir(Funcionario funcionario) {
-        String sql = "INSERT INTO funcionarios (nome, cpf, telefone, cidade, estado, cargo, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO funcionarios (nome, cpf, cargo, cidade, estado, email, telefone, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCpf());
-            ps.setString(3, funcionario.getTelefone());
+            ps.setString(3, funcionario.getCargo());
             ps.setString(4, funcionario.getCidade());
             ps.setString(5, funcionario.getEstado());
-            ps.setString(6, funcionario.getCargo());
-            ps.setString(7, funcionario.getSenha());
+            ps.setString(6, funcionario.getEmail());
+            ps.setString(7, funcionario.getTelefone());
+            ps.setString(8, funcionario.getSenha());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,17 +38,18 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void atualizar(Funcionario funcionario) {
-        String sql = "UPDATE funcionarios SET nome = ?, cpf = ?, telefone = ?, cidade = ?, estado = ?, cargo = ?, senha = ? WHERE id_funcionario = ?";
+        String sql = "UPDATE funcionarios SET nome = ?, cpf = ?, cargo = ?, cidade = ?, estado = ?, email = ?, telefone = ?, senha = ? WHERE id_funcionario = ?";
         
         try (PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCpf());
-            ps.setString(3, funcionario.getTelefone());
+            ps.setString(3, funcionario.getCargo());
             ps.setString(4, funcionario.getCidade());
             ps.setString(5, funcionario.getEstado());
-            ps.setString(6, funcionario.getCargo());
-            ps.setString(7, funcionario.getSenha());
-            ps.setInt(8, funcionario.getId_funcionario());
+            ps.setString(6, funcionario.getEmail());
+            ps.setString(7, funcionario.getTelefone());
+            ps.setString(8, funcionario.getSenha());
+            ps.setInt(9, funcionario.getId_funcionario());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,10 +80,11 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
                     rs.getInt("id_funcionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
-                    rs.getString("telefone"),
+                    rs.getString("cargo"),
                     rs.getString("cidade"),
                     rs.getString("estado"),
-                    rs.getString("cargo"),
+                    rs.getString("email"),
+                    rs.getString("telefone"),
                     rs.getString("senha")
                 );
             }
@@ -104,10 +107,11 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
                     rs.getInt("id_funcionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
-                    rs.getString("telefone"),
+                    rs.getString("cargo"),
                     rs.getString("cidade"),
                     rs.getString("estado"),
-                    rs.getString("cargo"),
+                    rs.getString("email"),
+                    rs.getString("telefone"),
                     rs.getString("senha")
                 ));
             }

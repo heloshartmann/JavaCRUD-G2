@@ -17,7 +17,8 @@ create table funcionario(
     nome varchar(50) not null,
     cpf varchar(14) not null,
     cargo varchar(50) not null default 'Engenheiro',
-    endereco varchar(50) not null,
+    cidade varchar(50) not null,
+    estado varchar(2) not null,
     email varchar(50) not null,
     telefone varchar(20) not null,
     senha varchar(10) not null
