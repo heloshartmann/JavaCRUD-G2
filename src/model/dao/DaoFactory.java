@@ -5,7 +5,7 @@ import model.dao.impl.FormularioDaoJDBC;
 
 public class DaoFactory {
 
-	public static FormularioDao createSellerDao() {
+	public static FormularioDao createFormularioDao() {
 		return new FormularioDaoJDBC(DB.getConnection());
 	}
 	
