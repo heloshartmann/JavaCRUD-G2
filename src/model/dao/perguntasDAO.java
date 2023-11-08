@@ -1,8 +1,8 @@
 package model.dao;
 
-import java.util.List;
-
 import model.dao.entites.Perguntas;
+
+import java.util.List;
 
 public interface perguntasDAO {
 

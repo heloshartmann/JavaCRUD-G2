@@ -33,7 +33,7 @@ public class FormularioDaoJDBC implements FormularioDao {
                         resultSet.getString("nome"),
                         resultSet.getFloat("conformidade"),
                         resultSet.getInt("id_empresa"),
-                        resultSet.getInt("id_funcioario")
+                        resultSet.getInt("ID_funcionario")
                 );
             }
         }catch (SQLException exception) {
@@ -101,7 +101,7 @@ public class FormularioDaoJDBC implements FormularioDao {
                         resultSet.getString("nome"),
                         resultSet.getFloat("conformidade"),
                         resultSet.getEmpresa("id_empresa"),
-                        resultSet.getFuncionario("id_funcioario")
+                        resultSet.getFuncionario("id_funcionario")
                 ));
             }
         }catch (SQLException exception) {
