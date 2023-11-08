@@ -1,14 +1,15 @@
 package model.dao;
 
 import db.DB;
+import model.dao.impl.FormularioDaoJDBC;
 
 public class DaoFactory {
 
-	public static SellerDao createSellerDao() {
-		return new SellerDaoJDBC(DB.getConnection());
+	public static FormularioDao createFormularioDao() {
+		return new FormularioDaoJDBC(DB.getConnection());
 	}
 	
-	public static DepartmentDao createDepartmentDao() {
-		return new DepartmentDaoJDBC(DB.getConnection());
-	}
+//	public static FuncionarioDao createFuncionarioDao() {
+//		return new FuncionarioDaoJDBC(DB.getConnection());
+//	}
 }
