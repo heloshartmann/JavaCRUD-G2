@@ -1,70 +1,52 @@
 package model.dao.entites;
 
 public class Perguntas {
-    private int IDquestionario;
-    private String nome;
-    private String eixo;
-    private String pergunta;
-    private Empresa empresa;
-    private Funcionario funcionario;
+    private int ID_Pergunta;
+    private String pontuacao;
+    private String Pergunta;
+    private String imagem_doc;
 
     public Perguntas() {
     }
 
-    public Perguntas(int IDquestionario, String nome, String eixo, String pergunta, Empresa empresa, Funcionario funcionario) {
-        this.IDquestionario = IDquestionario;
-        this.nome = nome;
-        this.eixo = eixo;
-        this.pergunta = pergunta;
-        this.empresa = empresa;
-        this.funcionario = funcionario;
-    }
-
+    public Perguntas(int ID_Pergunta, String Pergunta, String pontuacao, String imagem_doc){
+        this.ID_Pergunta = ID_Pergunta;
+        this.Pergunta = Pergunta;
+        this.pontuacao = pontuacao;
+       this.imagem_doc = imagem_doc; 
+       }
+       
     public int getIdQuestionario() {
-        return IDquestionario;
+        return ID_Pergunta;
     }
 
-    public void setIdQuestionario(int IDquestionario) {
-        this.IDquestionario = IDquestionario;
+    public void setIdQuestionario(int ID_Pergunta) {
+        this.ID_Pergunta = ID_Pergunta;
     }
 
     public String getNome() {
-        return nome;
+        return Pergunta;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String Pergunta) {
+        this.Pergunta = Pergunta;
     }
 
-    public String getEixo() {
-        return eixo;
+    public String getPontuacao() {
+        return pontuacao;
     }
 
-    public void setEixo(String eixo) {
-        this.eixo = eixo;
+    public void setPontuacao(String pontuacao) {
+        this.pontuacao = pontuacao;
     }
 
-    public String getPergunta() {
-        return pergunta;
+   public void setimagem_doc(String imagem_doc) {
+        this.imagem_doc = imagem_doc;
     }
 
-    public void setPergunta(String pergunta) {
-        this.pergunta = pergunta;
+ public String getimagem_doc() {
+        return imagem_doc;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
 }
