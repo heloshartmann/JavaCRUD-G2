@@ -1,52 +1,56 @@
 package model.dao.entites;
 
 public class Formulario {
-    private int IDforms;
-    private String nome;
-    private float conformidade;
-    private Empresa empresa;
+    private int IDformulario;
+    private String conformidade;
+    private String categoria;
+    private EmpresaCliente empresa;
     private Funcionario funcionario;
 
-    public Formulario() {
+    public Formulario(int iDformulario, String categoria, String conformidade, String idEmpresa, int idFuncioario) {
     }
 
-    public Formulario(int IDforms, String nome, float conformidade, Empresa empresa, Funcionario funcionario) {
-        this.IDforms = IDforms;
-        this.nome = nome;
+    public Formulario(int IDformulario, String conformidade, String categoria, EmpresaCliente empresa, Funcionario funcionario) {
+        this.IDformulario = IDformulario;
         this.conformidade = conformidade;
+        this.categoria = categoria;
         this.empresa = empresa;
         this.funcionario = funcionario;
     }
 
-    public int getIDforms() {
-        return IDforms;
+    public Formulario() {
+
     }
 
-    public void setIDforms(int IDforms) {
-        this.IDforms = IDforms;
+    public int getIDformulario() {
+        return IDformulario;
     }
 
-    public String getNome() {
-        return nome;
+    public void setIDformulario(int IDformulario) {
+        this.IDformulario = IDformulario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public float getConformidade() {
+    public String getConformidade() {
         return conformidade;
     }
 
-    public void setConformidade(float conformidade) {
+    public void setConformidade(String conformidade) {
         this.conformidade = conformidade;
     }
 
-    public Empresa getEmpresa() {
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public EmpresaCliente getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(Empresa empresa) {
+    public void setEmpresa(EmpresaCliente empresa) {
         this.empresa = empresa;
     }
 

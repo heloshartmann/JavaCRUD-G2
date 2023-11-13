@@ -1,4 +1,6 @@
 package model.dao.impl;
+import model.dao.EmpresaClienteDao;
+import model.dao.entites.EmpresaCliente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 public class EmpresaClienteDaoJDBC {
     private Connection conexao;
 
@@ -68,14 +69,14 @@ public class EmpresaClienteDaoJDBC {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new EmpresaCliente(
-                    rs.getInt("id_empresa"),
-                    rs.getString("nome_fantasia"),
-                    rs.getString("cnpj"),
-                    rs.getString("razao_social"),
-                    rs.getString("atividade"),
-                    rs.getString("porte"),
-                    rs.getString("email"),
-                    rs.getString("senha")
+                        rs.getInt("id_empresa"),
+                        rs.getString("nome_fantasia"),
+                        rs.getString("cnpj"),
+                        rs.getString("razao_social"),
+                        rs.getString("atividade"),
+                        rs.getString("porte"),
+                        rs.getString("email"),
+                        rs.getString("senha")
                 );
             }
         } catch (SQLException e) {
@@ -93,14 +94,14 @@ public class EmpresaClienteDaoJDBC {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 empresasClientes.add(new EmpresaCliente(
-                    rs.getInt("id_empresa"),
-                    rs.getString("nome_fantasia"),
-                    rs.getString("cnpj"),
-                    rs.getString("razao_social"),
-                    rs.getString("atividade"),
-                    rs.getString("porte"),
-                    rs.getString("email"),
-                    rs.getString("senha")
+                        rs.getInt("id_empresa"),
+                        rs.getString("nome_fantasia"),
+                        rs.getString("cnpj"),
+                        rs.getString("razao_social"),
+                        rs.getString("atividade"),
+                        rs.getString("porte"),
+                        rs.getString("email"),
+                        rs.getString("senha")
                 ));
             }
         } catch (SQLException e) {

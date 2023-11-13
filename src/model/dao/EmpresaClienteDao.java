@@ -1,5 +1,8 @@
+package model.dao;
 
 import java.util.List;
+
+import model.dao.entites.EmpresaCliente;
 
 public interface EmpresaClienteDao {
     // Operações CRUD (Create, Read, Update, Delete)

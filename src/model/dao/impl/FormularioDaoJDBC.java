@@ -17,41 +17,15 @@ public class FormularioDaoJDBC implements FormularioDao {
         this.connection = connection;
     }
 
-
-
-    @Override
-    public Formulario buscarFormularioPorID(int IDforms) throws SQLException {
-        String sql = "SELECT * FROM formulario WHERE id_formulario = ?";
-
-
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, IDforms);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                formulario = new Formulario(
-                        resultSet.getInt("IDforms"),
-                        resultSet.getString("nome"),
-                        resultSet.getFloat("conformidade"),
-                        resultSet.getInt("id_empresa"),
-                        resultSet.getInt("id_funcioario")
-                );
-            }
-        }catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-
-        return null;
-    }
-
     @Override
     public void insert(Formulario formulario) {
-        String sql = "INSERT INTO formulario (nome, conformidade, id_empresa, id_fucioario) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO formulario (categoria, conformidade, IDempresa, IDfucionario) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, formulario.getNome());
-            statement.setFloat(2, formulario.getConformidade());
-            statement.setInt(3, formulario.getIDEmpresa());
-            statement.setInt(4, formulario.getIDFuncionario());
+            statement.setString(1, formulario.getCategoria());
+            statement.setString(2, formulario.getConformidade());
+            statement.setInt(3, formulario.getEmpresa().getIdEmpresa());
+            statement.setInt(4, formulario.getFuncionario().getIDfuncionario());
             statement.executeUpdate();
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -63,11 +37,11 @@ public class FormularioDaoJDBC implements FormularioDao {
         String sql = "UPDATE formulario SET nome = ?, coformidade = ?, id_empresa = ?, id_fucioario = ? WHERE id_formulario = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, formulario.getNome());
-            statement.setFloat(2, formulario.getConformidade());
-            statement.setInt(3, formulario.getIDEmpresa());
-            statement.setInt(4, formulario.getIDFuncionario());
-            statement.setInt(5,formulario.getIDform());
+            statement.setString(1, formulario.getCategoria());
+            statement.setString(2, formulario.getConformidade());
+            statement.setFloat(3, formulario.getEmpresa().getIdEmpresa());
+            statement.setFloat(4, formulario.getFuncionario().getIDfuncionario());
+            statement.setInt(5,formulario.getIDformulario());
             statement.executeUpdate();
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -80,11 +54,35 @@ public class FormularioDaoJDBC implements FormularioDao {
         String sql = "DELETE FROM formulario WHERE id_formualario = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, IDform);
+            statement.setInt(1, id);
             statement.executeUpdate();
         }catch (SQLException exception) {
             exception.printStackTrace();
         }
+    }
+
+    @Override
+    public Formulario findById(int id){
+        String sql = "SELECT * FROM formulario WHERE id_formulario = ?";
+
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new Formulario(
+                        resultSet.getInt("IDformulario"),
+                        resultSet.getString("categoria"),
+                        resultSet.getString("conformidade"),
+                        resultSet.getString("id_empresa"),
+                        resultSet.getInt("id_funcioario")
+                );
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return null;
     }
 
 
@@ -97,11 +95,11 @@ public class FormularioDaoJDBC implements FormularioDao {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 formulario.add(new Formulario(
-                        resultSet.getInt("IDforms"),
-                        resultSet.getString("nome"),
-                        resultSet.getFloat("conformidade"),
-                        resultSet.getEmpresa("id_empresa"),
-                        resultSet.getFuncionario("id_funcioario")
+                        resultSet.getInt("IDformulario"),
+                        resultSet.getString("categoria"),
+                        resultSet.getString("conformidade"),
+                        resultSet.getString("IDempresa"),
+                        Integer.parseInt(resultSet.getString("IDfuncionario"))
                 ));
             }
         }catch (SQLException exception) {
