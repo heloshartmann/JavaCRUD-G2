@@ -1,7 +1,7 @@
 package model.dao.entites;
 
 public class Funcionario {
-    private int id_funcionario;
+    private int IDfuncionario;
     private String nome;
     private String cpf;
     private String cargo;
@@ -14,8 +14,8 @@ public class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario(int id_funcionario, String nome, String cpf, String cargo, String cidade, String estado, String email, String telefone, String senha) {
-        this.id_funcionario = id_funcionario;
+    public Funcionario(int IDfuncionario, String nome, String cpf, String cargo, String cidade, String estado, String email, String telefone, String senha) {
+        this.IDfuncionario = IDfuncionario;
         this.nome = nome;
         this.cpf = cpf;
         this.cargo = cargo;
@@ -26,12 +26,12 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public int getId_funcionario() {
-        return id_funcionario;
+    public int getIDfuncionario() {
+        return IDfuncionario;
     }
 
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setIDfuncionario(int id_funcionario) {
+        this.IDfuncionario = id_funcionario;
     }
 
     public String getNome() {

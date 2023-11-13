@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuncionarioDaoJDBC implements FuncionarioDao {
-    private Connection conexao;
+    private Connection connection;
 
 
-    public FuncionarioDaoJDBC(Connection conexao) {
-        this.conexao = conexao;
+    public FuncionarioDaoJDBC(Connection connection) {
+        this.connection = connection;
     }
 
     @Override
-    public void inserir(Funcionario funcionario) {
+    public void insert(Funcionario funcionario) {
         String sql = "INSERT INTO funcionarios (nome, cpf, cargo, cidade, estado, email, telefone, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCpf());
             ps.setString(3, funcionario.getCargo());
@@ -37,10 +37,10 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
     }
 
     @Override
-    public void atualizar(Funcionario funcionario) {
+    public void update(Funcionario funcionario) {
         String sql = "UPDATE funcionarios SET nome = ?, cpf = ?, cargo = ?, cidade = ?, estado = ?, email = ?, telefone = ?, senha = ? WHERE id_funcionario = ?";
         
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCpf());
             ps.setString(3, funcionario.getCargo());
@@ -49,7 +49,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
             ps.setString(6, funcionario.getEmail());
             ps.setString(7, funcionario.getTelefone());
             ps.setString(8, funcionario.getSenha());
-            ps.setInt(9, funcionario.getId_funcionario());
+            ps.setInt(9, funcionario.getIDfuncionario());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -57,10 +57,10 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
     }
 
     @Override
-    public void excluir(int id) {
+    public void deleteById(int id) {
         String sql = "DELETE FROM funcionarios WHERE id_funcionario = ?";
         
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -69,15 +69,15 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
     }
 
     @Override
-    public Funcionario buscarPorId(int id) {
+    public Funcionario findById(int id) {
         String sql = "SELECT * FROM funcionarios WHERE id_funcionario = ?";
         
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Funcionario(
-                    rs.getInt("id_funcionario"),
+                    rs.getInt("IDfuncionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
@@ -96,15 +96,15 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
     }
 
     @Override
-    public List<Funcionario> listarTodos() {
+    public List<Funcionario> findAll() {
         List<Funcionario> funcionarios = new ArrayList<>();
         String sql = "SELECT * FROM funcionarios";
         
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 funcionarios.add(new Funcionario(
-                    rs.getInt("id_funcionario"),
+                    rs.getInt("IDfuncionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
@@ -118,7 +118,6 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
         return funcionarios;
     }
 }
