@@ -1,4 +1,4 @@
-package entites;
+package model.dao.entites;
 
 
 public class EmpresaCliente {
@@ -12,11 +12,15 @@ public class EmpresaCliente {
     private String senha;
 
     // Construtor
-    public EmpresaCliente(int idEmpresa, String nomeFantasia, String cnpj, String razaoSocial, String email, String senha) {
+
+
+    public EmpresaCliente(int idEmpresa, String nomeFantasia, String cnpj, String razaoSocial, String atividade, String porte, String email, String senha) {
         this.idEmpresa = idEmpresa;
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
+        this.atividade = atividade;
+        this.porte = porte;
         this.email = email;
         this.senha = senha;
     }
