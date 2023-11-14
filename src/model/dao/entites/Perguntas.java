@@ -1,35 +1,27 @@
 package model.dao.entites;
 
 public class Perguntas {
-    private int ID_Pergunta;
+    private int IDpergunta;
     private String pontuacao;
-    private String Pergunta;
-    private String imagem_doc;
+    private String pergunta;
+    private String imagemDoc;
 
     public Perguntas() {
     }
 
-    public Perguntas(int ID_Pergunta, String Pergunta, String pontuacao, String imagem_doc){
-        this.ID_Pergunta = ID_Pergunta;
-        this.Pergunta = Pergunta;
+    public Perguntas(int IDpergunta, String Pergunta, String pontuacao, String imagem_doc){
+        this.IDpergunta = IDpergunta;
+        this.pergunta = Pergunta;
         this.pontuacao = pontuacao;
-       this.imagem_doc = imagem_doc; 
+       this.imagemDoc = imagem_doc;
        }
-       
-    public int getIdQuestionario() {
-        return ID_Pergunta;
+
+    public int getIDpergunta() {
+        return IDpergunta;
     }
 
-    public void setIdQuestionario(int ID_Pergunta) {
-        this.ID_Pergunta = ID_Pergunta;
-    }
-
-    public String getNome() {
-        return Pergunta;
-    }
-
-    public void setNome(String Pergunta) {
-        this.Pergunta = Pergunta;
+    public void setIDpergunta(int IDpergunta) {
+        this.IDpergunta = IDpergunta;
     }
 
     public String getPontuacao() {
@@ -40,13 +32,19 @@ public class Perguntas {
         this.pontuacao = pontuacao;
     }
 
-   public void setimagem_doc(String imagem_doc) {
-        this.imagem_doc = imagem_doc;
+    public String getPergunta() {
+        return pergunta;
     }
 
- public String getimagem_doc() {
-        return imagem_doc;
+    public void setPergunta(String pergunta) {
+        this.pergunta = pergunta;
     }
 
+    public String getImagemDoc() {
+        return imagemDoc;
+    }
 
+    public void setImagemDoc(String imagemDoc) {
+        this.imagemDoc = imagemDoc;
+    }
 }

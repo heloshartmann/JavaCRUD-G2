@@ -1,7 +1,7 @@
 package model.dao.impl;
 
-import model.dao.perguntasDAO;
-import model.dao.entites.perguntas;
+import model.dao.PerguntasDao;
+import model.dao.entites.Perguntas;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,8 +23,8 @@ public class PerguntasDaoJDBC implements PerguntasDao {
         String sql = "INSERT INTO perguntas (pontuacao,Pergunta,imagem_doc) VALUES (?, ?, ?,)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, perguntas.getimagem_doc());
-            statement.setString(2, perguntas.pontuacao());
+            statement.setString(1, perguntas.getImagemDoc());
+            statement.setString(2, perguntas.getPontuacao());
             statement.setString(3, perguntas.getPergunta());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -37,8 +37,8 @@ public class PerguntasDaoJDBC implements PerguntasDao {
         String sql = "UPDATE perguntas SET pontuacao = ?, imagem_doc = ?, Pergunta = ? WHERE IDpergunta = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, perguntas.getimagem_doc());
-            statement.setString(2, perguntas.pontuacao());
+            statement.setString(1, perguntas.getImagemDoc());
+            statement.setString(2, perguntas.getPontuacao());
             statement.setString(3, perguntas.getPergunta());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -71,8 +71,7 @@ public class PerguntasDaoJDBC implements PerguntasDao {
                         resultSet.getInt("IDpergunta"),
                         resultSet.getString("Pergunta"),
                         resultSet.getString("pontuacao"),
-                        resultSet.getString("imagem_doc"),
-                       
+                        resultSet.getString("imagem_doc")
                 );
             }
         } catch (SQLException e) {
@@ -94,8 +93,7 @@ public class PerguntasDaoJDBC implements PerguntasDao {
                         resultSet.getInt("IDpergunta"),
                         resultSet.getString("Pergunta"),
                         resultSet.getString("pontuacao"),
-                        resultSet.getString("imagem_doc"),
-                       
+                        resultSet.getString("imagem_doc")
                 );
                 perguntasList.add(perguntas);
             }
