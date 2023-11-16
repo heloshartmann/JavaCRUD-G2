@@ -19,7 +19,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void insert(Funcionario funcionario) {
-        String sql = "INSERT INTO funcionarios (nome, cpf, cargo, cidade, estado, email, telefone, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO funcionario (nome, cpf, cargo, cidade, estado, email, telefone, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
@@ -38,7 +38,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void update(Funcionario funcionario) {
-        String sql = "UPDATE funcionarios SET nome = ?, cpf = ?, cargo = ?, cidade = ?, estado = ?, email = ?, telefone = ?, senha = ? WHERE id_funcionario = ?";
+        String sql = "UPDATE funcionario SET nome = ?, cpf = ?, cargo = ?, cidade = ?, estado = ?, email = ?, telefone = ?, senha = ? WHERE id_funcionario = ?";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, funcionario.getNome());
@@ -58,7 +58,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE FROM funcionarios WHERE id_funcionario = ?";
+        String sql = "DELETE FROM funcionario WHERE id_funcionario = ?";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -70,7 +70,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public Funcionario findById(int id) {
-        String sql = "SELECT * FROM funcionarios WHERE id_funcionario = ?";
+        String sql = "SELECT * FROM funcionario WHERE id_funcionario = ?";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -97,13 +97,13 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public List<Funcionario> findAll() {
-        List<Funcionario> funcionarios = new ArrayList<>();
-        String sql = "SELECT * FROM funcionarios";
+        List<Funcionario> funcionario = new ArrayList<>();
+        String sql = "SELECT * FROM funcionario";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                funcionarios.add(new Funcionario(
+                funcionario.add(new Funcionario(
                     rs.getInt("IDfuncionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
@@ -118,6 +118,6 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return funcionarios;
+        return funcionario;
     }
 }
