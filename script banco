@@ -18,7 +18,7 @@ create table funcionario(
     cpf varchar(14) not null,
     cargo varchar(50) not null default 'Engenheiro',
     cidade varchar(50) not null,
-    estado varchar(2) not null,
+    estado varchar(50) not null,
     email varchar(50) not null,
     telefone varchar(20) not null,
     senha varchar(10) not null
@@ -30,7 +30,7 @@ create table formulario(
     categoria varchar(50) not null,
     empresa_fk int not null,
     constraint empresa_fk
-		foreign key(empresa_fk) references empresa_cliente (id_empresa),
+	foreign key(empresa_fk) references empresa_cliente (id_empresa),
 	funcionario_fk int not null,
 	constraint funcionario_fk
 		foreign key(funcionario_fk) references funcionario (id_funcionario)

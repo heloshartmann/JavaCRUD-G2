@@ -77,7 +77,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Funcionario(
-                    rs.getInt("IDfuncionario"),
+                    rs.getInt("id_funcionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
@@ -104,7 +104,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 funcionario.add(new Funcionario(
-                    rs.getInt("IDfuncionario"),
+                    rs.getInt("id_funcionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
