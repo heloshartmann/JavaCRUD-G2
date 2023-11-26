@@ -14,6 +14,7 @@ public class GerenciarFuncionarios extends JFrame {
     private JButton excluirFuncionarioButton;
     private JButton listarTodosOsFuncionariosButton;
     private JPanel TelaGerenciarFuncionario;
+    private JButton atualizarFuncionarioButton;
     private JTextArea displayFuncionarios;
     private FuncionarioDao funcionarioDao;
 
@@ -22,8 +23,10 @@ public class GerenciarFuncionarios extends JFrame {
 
         TelaGerenciarFuncionario = new JPanel();
         cadastrarFuncionarioButton = new JButton("Cadastrar Funcionario");
-        excluirFuncionarioButton = new JButton("Excluir Funcionario");
+        atualizarFuncionarioButton = new JButton("Atualizar Funcionario");
         listarTodosOsFuncionariosButton = new JButton("Listar todos os Funcionarios");
+        excluirFuncionarioButton = new JButton("Excluir Funcionario");
+
 
         displayFuncionarios = new JTextArea(30, 70);
         displayFuncionarios.setEditable(false);
@@ -40,11 +43,11 @@ public class GerenciarFuncionarios extends JFrame {
             }
         });
 
-        excluirFuncionarioButton.addActionListener(new ActionListener() {
+        atualizarFuncionarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ExcluirFuncionarios excluirFuncionarios = new ExcluirFuncionarios();
-                excluirFuncionarios.setVisible(true);
+                AtualizarFuncionarios atualizarFuncionarios = new AtualizarFuncionarios();
+                atualizarFuncionarios.setVisible(true);
             }
         });
 
@@ -55,12 +58,23 @@ public class GerenciarFuncionarios extends JFrame {
             }
         });
 
+        excluirFuncionarioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ExcluirFuncionarios excluirFuncionarios = new ExcluirFuncionarios();
+                excluirFuncionarios.setVisible(true);
+            }
+        });
+
+
         TelaGerenciarFuncionario.add(cadastrarFuncionarioButton);
-        TelaGerenciarFuncionario.add(excluirFuncionarioButton);
+        TelaGerenciarFuncionario.add(atualizarFuncionarioButton);
         TelaGerenciarFuncionario.add(listarTodosOsFuncionariosButton);
+        TelaGerenciarFuncionario.add(excluirFuncionarioButton);
         TelaGerenciarFuncionario.add(scrollPane);
 
         add(TelaGerenciarFuncionario);
+
     }
 
 
@@ -80,7 +94,7 @@ public class GerenciarFuncionarios extends JFrame {
                 displayFuncionarios.append("Email: " + funcionario.getEmail() + "  ");
                 displayFuncionarios.append("Telefone: " + funcionario.getTelefone() + "  ");
                 displayFuncionarios.append("Senha: " + funcionario.getSenha() + "\n\n");
-                displayFuncionarios.append("\n"); // Adiciona uma linha em branco entre os funcionários
+                displayFuncionarios.append("\n");
             }
         }
     }
