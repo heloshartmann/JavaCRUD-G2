@@ -92,4 +92,16 @@ public class EmpresaCliente {
         this.senha = senha;
     }
 
+    @Override
+    public String toString() {
+        return
+                "ID= " + IDempresa +
+                ", NomeFantasia= '" + nomeFantasia + '\'' +
+                ", CNPJ= '" + cnpj + '\'' +
+                ", RazaoSocial= '" + razaoSocial + '\'' +
+                ", Atividade= '" + atividade + '\'' +
+                ", Porte= '" + porte + '\'' +
+                ", Email= '" + email + '\'' +
+                ", Senha= '" + senha + '\'';
+    }
 }

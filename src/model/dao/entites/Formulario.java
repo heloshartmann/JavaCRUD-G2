@@ -40,4 +40,12 @@ public class Formulario {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return
+                "ID= " + IDformulario +
+                ", Conformidade= '" + conformidade + '\'' +
+                ", Categoria= '" + categoria + '\'';
+    }
 }

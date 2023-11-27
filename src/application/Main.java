@@ -33,6 +33,7 @@ public class Main {
                     System.out.println("2- Excluir Formulario");
                     System.out.println("3- Atualizar Formulario");
                     System.out.println("4- Listar todos Formularios");
+                    System.out.println("0- Sair");
                     int escolhaForm = sc.nextInt();
                     switch (escolhaForm){
                         case 1:
@@ -68,6 +69,8 @@ public class Main {
                                 System.out.println(formulario1.toString());
                             }
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 2:
@@ -76,6 +79,7 @@ public class Main {
                     System.out.println("2- Excluir Empresa");
                     System.out.println("3- Atualizar Empresa");
                     System.out.println("4- Listar todas Empresa");
+                    System.out.println("0- Sair");
                     int escolhaEmp = sc.nextInt();
                     switch (escolhaEmp){
                         case 1:
@@ -131,6 +135,8 @@ public class Main {
                                 System.out.println(empresaCliente1.toString());
                             }
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 3:
@@ -139,6 +145,7 @@ public class Main {
                     System.out.println("2- Excluir Perguntas");
                     System.out.println("3- Atualizar Perguntas");
                     System.out.println("4- Listar todas Perguntas");
+                    System.out.println("0- Sair");
                     int escolhaPerg = sc.nextInt();
                     switch (escolhaPerg){
                         case 1:
@@ -177,6 +184,8 @@ public class Main {
                             for (Perguntas perguntas1 : pergunta){
                                 System.out.println(perguntas1.toString());
                             }
+                            break;
+                        default:
                             break;
                     }
                     break;

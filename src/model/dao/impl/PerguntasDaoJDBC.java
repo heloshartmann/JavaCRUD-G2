@@ -20,26 +20,27 @@ public class PerguntasDaoJDBC implements PerguntasDao {
 
     @Override
     public void insert(Perguntas perguntas) {
-        String sql = "INSERT INTO perguntas (pontuacao,Pergunta,imagem_doc) VALUES (?, ?, ?,)";
+        String sql = "INSERT INTO perguntas (pergunta, pontuacao, imagemDoc) VALUES (?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, perguntas.getImagemDoc());
+            statement.setString(1, perguntas.getPergunta());
             statement.setString(2, perguntas.getPontuacao());
-            statement.setString(3, perguntas.getPergunta());
+            statement.setString(3, perguntas.getImagemDoc());
             statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
         }
     }
 
     @Override
     public void update(Perguntas perguntas) {
-        String sql = "UPDATE perguntas SET pontuacao = ?, imagem_doc = ?, Pergunta = ? WHERE IDpergunta = ?";
+        String sql = "UPDATE perguntas SET pergunta = ?, pontuacao = ?, imagemDoc = ? WHERE IDpergunta = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, perguntas.getImagemDoc());
+            statement.setString(1, perguntas.getPergunta());
             statement.setString(2, perguntas.getPontuacao());
-            statement.setString(3, perguntas.getPergunta());
+            statement.setString(3, perguntas.getImagemDoc());
+            statement.setInt(4,perguntas.getIDpergunta());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,9 +70,9 @@ public class PerguntasDaoJDBC implements PerguntasDao {
             if (resultSet.next()) {
                 perguntas = new Perguntas(
                         resultSet.getInt("IDpergunta"),
-                        resultSet.getString("Pergunta"),
+                        resultSet.getString("pergunta"),
                         resultSet.getString("pontuacao"),
-                        resultSet.getString("imagem_doc")
+                        resultSet.getString("imagemDoc")
                 );
             }
         } catch (SQLException e) {
@@ -91,9 +92,9 @@ public class PerguntasDaoJDBC implements PerguntasDao {
             while (resultSet.next()) {
                 Perguntas perguntas = new Perguntas(
                         resultSet.getInt("IDpergunta"),
-                        resultSet.getString("Pergunta"),
+                        resultSet.getString("pergunta"),
                         resultSet.getString("pontuacao"),
-                        resultSet.getString("imagem_doc")
+                        resultSet.getString("imagemDoc")
                 );
                 perguntasList.add(perguntas);
             }

@@ -35,7 +35,7 @@ public class EmpresaClienteDaoJDBC implements EmpresaClienteDao{
 
     @Override
     public void update(EmpresaCliente empresaCliente) {
-        String sql = "UPDATE empresa_cliente SET nome_fantasia = ?, cnpj = ?, razao_social = ?, atividade = ?, porte = ?, email = ?, senha = ? WHERE id_empresa = ?";
+        String sql = "UPDATE empresa_cliente SET nome_fantasia = ?, cnpj = ?, razao_social = ?, atividade = ?, porte = ?, email = ?, senha = ? WHERE idEmpresa = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, empresaCliente.getNomeFantasia());
@@ -54,7 +54,7 @@ public class EmpresaClienteDaoJDBC implements EmpresaClienteDao{
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE FROM empresa_cliente WHERE id_empresa = ?";
+        String sql = "DELETE FROM empresa_cliente WHERE idEmpresa = ?";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -99,7 +99,7 @@ public class EmpresaClienteDaoJDBC implements EmpresaClienteDao{
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 empresasClientes.add(new EmpresaCliente(
-                        rs.getInt("id_empresa"),
+                        rs.getInt("idEmpresa"),
                         rs.getString("nome_fantasia"),
                         rs.getString("cnpj"),
                         rs.getString("razao_social"),
