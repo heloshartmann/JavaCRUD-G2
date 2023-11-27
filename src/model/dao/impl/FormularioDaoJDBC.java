@@ -19,13 +19,11 @@ public class FormularioDaoJDBC implements FormularioDao {
 
     @Override
     public void insert(Formulario formulario) {
-        String sql = "INSERT INTO formulario (categoria, conformidade, IDempresa, IDfucionario) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO formulario (categoria, conformidade) VALUES (?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, formulario.getCategoria());
             statement.setString(2, formulario.getConformidade());
-            statement.setInt(3, formulario.getEmpresa().getIdEmpresa());
-            statement.setInt(4, formulario.getFuncionario().getIDfuncionario());
             statement.executeUpdate();
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -34,13 +32,11 @@ public class FormularioDaoJDBC implements FormularioDao {
 
     @Override
     public void update(Formulario formulario) {
-        String sql = "UPDATE formulario SET nome = ?, coformidade = ?, id_empresa = ?, id_fucioario = ? WHERE id_formulario = ?";
+        String sql = "UPDATE formulario SET nome = ?, coformidade = ? = ? WHERE id_formulario = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, formulario.getCategoria());
             statement.setString(2, formulario.getConformidade());
-            statement.setFloat(3, formulario.getEmpresa().getIdEmpresa());
-            statement.setFloat(4, formulario.getFuncionario().getIDfuncionario());
             statement.setInt(5,formulario.getIDformulario());
             statement.executeUpdate();
         }catch (SQLException exception) {
