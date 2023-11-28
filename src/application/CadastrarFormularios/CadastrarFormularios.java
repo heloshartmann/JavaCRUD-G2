@@ -1,14 +1,13 @@
-package application;
+
 
 import model.dao.DaoFactory;
-import model.dao.FuncionarioDao;
-import model.dao.entites.Funcionario;
+import model.dao.FormularioDao;
+import model.dao.entites.Formulario;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 public class CadastrarFormularios extends JFrame {
     private JPanel TelaCadastrarFormularios;
@@ -17,6 +16,7 @@ public class CadastrarFormularios extends JFrame {
     private JTextField textFieldIdEmpresa;
     private JTextField textFieldIdFuncionario;
     private JButton CadastrarFormulariosButton;
+    private JLabel Cadastrar;
 
     public CadastrarFormularios() {
         TelaCadastrarFormularios = new JPanel();
