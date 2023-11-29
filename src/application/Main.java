@@ -52,7 +52,7 @@ public class Main {
                             System.out.println("---Deletar Formulario---");
                             System.out.println("Digite o ID do formulario que deseja excluir: ");
                             int idForm = sc.nextInt();
-                            FormularioDao.deleteById(idForm);
+                            formularioDao.deleteById(idForm);
                             break;
                         case 3:
                             System.out.println("---Atualizar Formulario---");

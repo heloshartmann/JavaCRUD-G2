@@ -1,4 +1,4 @@
-package application;
+package application.CadastrarFormularios;
 
 import model.dao.DaoFactory;
 import model.dao.FormularioDao;
@@ -15,8 +15,8 @@ public class CadastrarFormularios extends JFrame {
     private JTextField textFieldCategoria;
     private JTextField textFieldIdEmpresa;
     private JTextField textFieldIdFuncionario;
-
-    private JButton cadastrarFormulariosButton;
+    private JButton CadastrarFormulariosButton;
+    private JLabel Cadastrar;
 
     public CadastrarFormularios() {
         TelaCadastrarFormularios = new JPanel();
@@ -39,26 +39,30 @@ public class CadastrarFormularios extends JFrame {
         TelaCadastrarFormularios.add(textFieldIdFuncionario);
 
 
-        JButton cadastrarFormulariosButton = new JButton("Cadastrar Formulário");
+
+
+        CadastrarFormulariosButton = new JButton("Cadastrar Formulário");
 
 
 
         setTitle("Cadastro de Formularios");
         getContentPane().add(TelaCadastrarFormularios, BorderLayout.CENTER);
-        getContentPane().add(cadastrarFormulariosButton, BorderLayout.SOUTH);
+        getContentPane().add(CadastrarFormulariosButton, BorderLayout.SOUTH);
         pack();
         setLocationRelativeTo(null);
-        cadastrarFormulariosButton.addActionListener(new ActionListener() {
+        CadastrarFormulariosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String conformidade = textFieldConformidade.getText();
                 String categoria = textFieldCategoria.getText();
-                int idEmpresa = Integer.parseInt(textFieldIdEmpresa.getText());
+                String idEmpresa = textFieldIdEmpresa.getText();
                 int idFuncionario = Integer.parseInt(textFieldIdFuncionario.getText());
 
+                //EmpresaCliente empresa = new EmpresaCliente();
+               // Funcionario funcionario = new Funcionario();
 
 
-                Formulario novoFormulario = new Formulario(0, conformidade, categoria,idEmpresa,idFuncionario);
+                Formulario novoFormulario = new Formulario(0, conformidade, categoria, idEmpresa, idFuncionario);
 
 
                 FormularioDao formularioDao = DaoFactory.createFormularioDao();

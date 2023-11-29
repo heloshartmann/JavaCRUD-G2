@@ -14,7 +14,6 @@ public interface FormularioDao {
     }
 
 
-
     Formulario findById(int id);
     List<Formulario> findAll();
 }
