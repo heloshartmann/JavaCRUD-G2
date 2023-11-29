@@ -55,7 +55,7 @@ public class CadastrarFormularios extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String conformidade = textFieldConformidade.getText();
                 String categoria = textFieldCategoria.getText();
-                String idEmpresa = textFieldIdEmpresa.getText();
+                int idEmpresa = Integer.parseInt(textFieldIdEmpresa.getText());
                 int idFuncionario = Integer.parseInt(textFieldIdFuncionario.getText());
 
                 //EmpresaCliente empresa = new EmpresaCliente();

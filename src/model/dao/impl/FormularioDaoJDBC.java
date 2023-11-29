@@ -45,7 +45,7 @@ public class FormularioDaoJDBC implements FormularioDao {
 
     }
 
-    @Override
+
     public void deleteById(int id) {
         String sql = "DELETE FROM formulario WHERE IDformulario = ?";
 
@@ -69,7 +69,9 @@ public class FormularioDaoJDBC implements FormularioDao {
                 return new Formulario(
                         resultSet.getInt("IDformulario"),
                         resultSet.getString("categoria"),
-                        resultSet.getString("conformidade")
+                        resultSet.getString("conformidade"),
+                        resultSet.getInt("empresa"),
+                        resultSet.getInt("funcionario")
                 );
             }
         }catch (SQLException exception) {
@@ -91,7 +93,9 @@ public class FormularioDaoJDBC implements FormularioDao {
                 formulario.add(new Formulario(
                         resultSet.getInt("IDformulario"),
                         resultSet.getString("categoria"),
-                        resultSet.getString("conformidade")
+                        resultSet.getString("conformidade"),
+                        resultSet.getInt("IDformulario"),
+                        resultSet.getInt("IDformulario")
                 ));
             }
         }catch (SQLException exception) {
