@@ -51,7 +51,7 @@ public class ExcluirFormularios extends JFrame {
                 String idText = textFieldId.getText();
                 int id = Integer.parseInt(idText);
 
-                formulariosDao.deleteById(id);
+                FormularioDao.deleteById(id);
                 JOptionPane.showMessageDialog(null, "Formulário excluído com sucesso!");
                 textFieldId.setText("");
 

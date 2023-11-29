@@ -56,11 +56,9 @@ public class CadastrarFormularios extends JFrame {
                 int idEmpresa = Integer.parseInt(textFieldIdEmpresa.getText());
                 int idFuncionario = Integer.parseInt(textFieldIdFuncionario.getText());
 
-                //EmpresaCliente empresa = new EmpresaCliente();
-               // Funcionario funcionario = new Funcionario();
 
 
-                Formulario novoFormulario = new Formulario(0, conformidade, categoria);
+                Formulario novoFormulario = new Formulario(0, conformidade, categoria,idEmpresa,idFuncionario);
 
 
                 FormularioDao formularioDao = DaoFactory.createFormularioDao();
