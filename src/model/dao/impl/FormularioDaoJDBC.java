@@ -24,8 +24,8 @@ public class FormularioDaoJDBC implements FormularioDao {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, formulario.getCategoria());
             statement.setString(2, formulario.getConformidade());
-            statement.setInt(3, formulario.getEmpresa().getIdEmpresa());
-            statement.setInt(4, formulario.getFuncionario().getIDfuncionario());
+            statement.setInt(3, formulario.getEmpresa());
+            statement.setInt(4, formulario.getFuncionario());
             statement.executeUpdate();
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -39,8 +39,8 @@ public class FormularioDaoJDBC implements FormularioDao {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, formulario.getCategoria());
             statement.setString(2, formulario.getConformidade());
-            statement.setFloat(3, formulario.getEmpresa().getIdEmpresa());
-            statement.setFloat(4, formulario.getFuncionario().getIDfuncionario());
+            statement.setInt(3, formulario.getEmpresa());
+            statement.setInt(4, formulario.getFuncionario());
             statement.setInt(5,formulario.getIDformulario());
             statement.executeUpdate();
         }catch (SQLException exception) {

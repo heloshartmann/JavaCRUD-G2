@@ -1,4 +1,4 @@
-
+package application.CadastrarFormularios;
 
 import model.dao.DaoFactory;
 import model.dao.FormularioDao;
@@ -58,11 +58,11 @@ public class CadastrarFormularios extends JFrame {
                 String idEmpresa = textFieldIdEmpresa.getText();
                 int idFuncionario = Integer.parseInt(textFieldIdFuncionario.getText());
 
-                EmpresaCliente empresa = new EmpresaCliente();
-                Funcionario funcionario = new Funcionario();
+                //EmpresaCliente empresa = new EmpresaCliente();
+               // Funcionario funcionario = new Funcionario();
 
 
-                Formulario novoFormulario = new Formulario(0, conformidade, categoria, empresa, funcionario);
+                Formulario novoFormulario = new Formulario(0, conformidade, categoria, idEmpresa, idFuncionario);
 
 
                 FormularioDao formularioDao = DaoFactory.createFormularioDao();

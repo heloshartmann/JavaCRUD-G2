@@ -4,13 +4,13 @@ public class Formulario {
     private int IDformulario;
     private String conformidade;
     private String categoria;
-    private EmpresaCliente empresa;
-    private Funcionario funcionario;
+    private int empresa;
+    private int funcionario;
 
     public Formulario(int iDformulario, String categoria, String conformidade, String idEmpresa, int idFuncioario) {
     }
 
-    public Formulario(int IDformulario, String conformidade, String categoria, EmpresaCliente empresa, Funcionario funcionario) {
+    public Formulario(int IDformulario, String conformidade, String categoria, int empresa, int funcionario) {
         this.IDformulario = IDformulario;
         this.conformidade = conformidade;
         this.categoria = categoria;
@@ -46,19 +46,19 @@ public class Formulario {
         this.categoria = categoria;
     }
 
-    public EmpresaCliente getEmpresa() {
+    public int getEmpresa() {
         return empresa;
     }
 
-    public void setEmpresa(EmpresaCliente empresa) {
+    public void setEmpresa(int empresa) {
         this.empresa = empresa;
     }
 
-    public Funcionario getFuncionario() {
+    public int getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(int funcionario) {
         this.funcionario = funcionario;
     }
 }
