@@ -58,7 +58,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public void deleteById(int id) {
-        String sql = "DELETE FROM funcionario WHERE id_funcionario = ?";
+        String sql = "DELETE FROM funcionario WHERE IDfuncionario = ?";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -70,14 +70,14 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
 
     @Override
     public Funcionario findById(int id) {
-        String sql = "SELECT * FROM funcionario WHERE id_funcionario = ?";
+        String sql = "SELECT * FROM funcionario WHERE IDfuncionario = ?";
         
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new Funcionario(
-                    rs.getInt("id_funcionario"),
+                    rs.getInt("IDfuncionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
@@ -104,7 +104,7 @@ public class FuncionarioDaoJDBC implements FuncionarioDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 funcionario.add(new Funcionario(
-                    rs.getInt("id_funcionario"),
+                    rs.getInt("IDfuncionario"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("cargo"),
