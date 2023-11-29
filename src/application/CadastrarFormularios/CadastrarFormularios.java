@@ -62,7 +62,7 @@ public class CadastrarFormularios extends JFrame {
                // Funcionario funcionario = new Funcionario();
 
 
-                Formulario novoFormulario = new Formulario(0, conformidade, categoria, idEmpresa, idFuncionario);
+                Formulario novoFormulario = new Formulario(0, conformidade, categoria);
 
 
                 FormularioDao formularioDao = DaoFactory.createFormularioDao();

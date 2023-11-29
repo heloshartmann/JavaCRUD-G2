@@ -87,8 +87,6 @@ public class AtualizarFormularios extends JFrame {
                 if (formulario != null) {
                     textFieldConformidade.setText(formulario.getConformidade());
                     textFieldCategoria.setText(formulario.getCategoria());
-                    textFieldFuncionario.setText(String.valueOf(formulario.getFuncionario()));
-                    textFieldEmpresa.setText(String.valueOf(formulario.getEmpresa()));
                 } else {
                     JOptionPane.showMessageDialog(AtualizarFormularios.this, "Funcionário não encontrado!");
                 }
@@ -101,9 +99,6 @@ public class AtualizarFormularios extends JFrame {
                 if (formulario != null) {
                     formulario.setConformidade(textFieldConformidade.getText());
                     formulario.setCategoria(textFieldCategoria.getText());
-                    formulario.setEmpresa(Integer.parseInt(textFieldEmpresa.getText()));
-                    formulario.setFuncionario(Integer.parseInt(textFieldFuncionario.getText()));
-
 
                     FormularioDao formularioDao = DaoFactory.createFormularioDao();
                     formularioDao.update(formulario);

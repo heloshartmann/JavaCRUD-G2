@@ -5,9 +5,6 @@ public class Formulario {
     private String conformidade;
     private String categoria;
 
-    public Formulario(int IDformulario, String categoria, String conformidade) {
-    }
-
     public Formulario(int IDformulario, String conformidade, String categoria) {
         this.IDformulario = IDformulario;
         this.conformidade = conformidade;
