@@ -8,5 +8,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-j-8.1.0" level="project" />
+<<<<<<< Updated upstream
+=======
+    <orderEntry type="library" name="mysql-connector-j-8.1.01" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.1.02" level="project" />
+>>>>>>> Stashed changes
   </component>
 </module>
