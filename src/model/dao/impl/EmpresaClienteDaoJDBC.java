@@ -8,17 +8,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-public class EmpresaClienteDaoJDBC {
-    private Connection conexao;
+public class EmpresaClienteDaoJDBC implements EmpresaClienteDao{
+    private Connection connection;
 
-    public EmpresaClienteDaoJDBC(Connection conexao) {
-        this.conexao = conexao;
+    public EmpresaClienteDaoJDBC(Connection connection) {
+        this.connection = connection;
     }
 
-    public void inserir(EmpresaCliente empresaCliente) {
+    @Override
+    public void insert(EmpresaCliente empresaCliente) {
         String sql = "INSERT INTO empresa_cliente (nome_fantasia, cnpj, razao_social, atividade, porte, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, empresaCliente.getNomeFantasia());
             ps.setString(2, empresaCliente.getCnpj());
             ps.setString(3, empresaCliente.getRazaoSocial());
@@ -32,10 +33,11 @@ public class EmpresaClienteDaoJDBC {
         }
     }
 
-    public void atualizar(EmpresaCliente empresaCliente) {
-        String sql = "UPDATE empresa_cliente SET nome_fantasia = ?, cnpj = ?, razao_social = ?, atividade = ?, porte = ?, email = ?, senha = ? WHERE id_empresa = ?";
+    @Override
+    public void update(EmpresaCliente empresaCliente) {
+        String sql = "UPDATE empresa_cliente SET nome_fantasia = ?, cnpj = ?, razao_social = ?, atividade = ?, porte = ?, email = ?, senha = ? WHERE idEmpresa = ?";
 
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, empresaCliente.getNomeFantasia());
             ps.setString(2, empresaCliente.getCnpj());
             ps.setString(3, empresaCliente.getRazaoSocial());
@@ -50,10 +52,11 @@ public class EmpresaClienteDaoJDBC {
         }
     }
 
-    public void excluir(int id) {
-        String sql = "DELETE FROM empresa_cliente WHERE id_empresa = ?";
+    @Override
+    public void deleteById(int id) {
+        String sql = "DELETE FROM empresa_cliente WHERE idEmpresa = ?";
 
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -61,10 +64,11 @@ public class EmpresaClienteDaoJDBC {
         }
     }
 
-    public EmpresaCliente buscarPorId(int id) {
+    @Override
+    public EmpresaCliente findById(int id) {
         String sql = "SELECT * FROM empresa_cliente WHERE id_empresa = ?";
 
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -86,15 +90,16 @@ public class EmpresaClienteDaoJDBC {
         return null;
     }
 
-    public List<EmpresaCliente> listarTodos() {
+    @Override
+    public List<EmpresaCliente> findAll() {
         List<EmpresaCliente> empresasClientes = new ArrayList<>();
         String sql = "SELECT * FROM empresa_cliente";
 
-        try (PreparedStatement ps = conexao.prepareStatement(sql)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 empresasClientes.add(new EmpresaCliente(
-                        rs.getInt("id_empresa"),
+                        rs.getInt("idEmpresa"),
                         rs.getString("nome_fantasia"),
                         rs.getString("cnpj"),
                         rs.getString("razao_social"),

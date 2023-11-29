@@ -9,11 +9,11 @@ public class Perguntas {
     public Perguntas() {
     }
 
-    public Perguntas(int IDpergunta, String Pergunta, String pontuacao, String imagem_doc){
+    public Perguntas(int IDpergunta, String pergunta, String pontuacao, String imagemDoc){
         this.IDpergunta = IDpergunta;
-        this.pergunta = Pergunta;
+        this.pergunta = pergunta;
         this.pontuacao = pontuacao;
-       this.imagemDoc = imagem_doc;
+        this.imagemDoc = imagemDoc;
        }
 
     public int getIDpergunta() {
@@ -46,5 +46,14 @@ public class Perguntas {
 
     public void setImagemDoc(String imagemDoc) {
         this.imagemDoc = imagemDoc;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "ID= " + IDpergunta +
+                ", Pontuacao= '" + pontuacao + '\'' +
+                ", Pergunta= '" + pergunta + '\'' +
+                ", ImagemDoc= '" + imagemDoc + '\'';
     }
 }
