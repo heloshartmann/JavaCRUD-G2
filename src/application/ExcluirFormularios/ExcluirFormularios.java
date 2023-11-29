@@ -1,4 +1,4 @@
-package application;
+package application.ExcluirFormularios;
 
 import db.DB;
 import model.dao.DaoFactory;
@@ -54,7 +54,7 @@ public class ExcluirFormularios extends JFrame {
                 int id = Integer.parseInt(idText);
 
                 FormularioDao.deleteById(id);
-                JOptionPane.showMessageDialog(null, "Funcionário excluído com sucesso!");
+                JOptionPane.showMessageDialog(null, "Formulário excluído com sucesso!");
                 textFieldId.setText("");
 
             }
@@ -62,8 +62,8 @@ public class ExcluirFormularios extends JFrame {
     }
 
     public static void main(String[] args) {
-        ExcluirFuncionarios excluirFuncionarios = new ExcluirFuncionarios();
-        excluirFuncionarios.setVisible(true);
+        ExcluirFormularios excluirFormularios = new ExcluirFormularios();
+        excluirFormularios.setVisible(true);
     }
 }
 
