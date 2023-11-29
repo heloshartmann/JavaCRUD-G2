@@ -1,4 +1,4 @@
-package application.AtualizarFormularios;
+package application;
 
 import model.dao.DaoFactory;
 import model.dao.FormularioDao;
@@ -87,8 +87,8 @@ public class AtualizarFormularios extends JFrame {
                 if (formulario != null) {
                     textFieldConformidade.setText(formulario.getConformidade());
                     textFieldCategoria.setText(formulario.getCategoria());
-                    textFieldFuncionario.setText(String.valueOf(formulario.getFuncionario()));
-                    textFieldEmpresa.setText(String.valueOf(formulario.getEmpresa()));
+                    textFieldFuncionario.setText(String.valueOf(formulario.getIdFuncionario()));
+                    textFieldEmpresa.setText(String.valueOf(formulario.getIdEmpresa()));
                 } else {
                     JOptionPane.showMessageDialog(AtualizarFormularios.this, "Funcionário não encontrado!");
                 }
@@ -101,8 +101,8 @@ public class AtualizarFormularios extends JFrame {
                 if (formulario != null) {
                     formulario.setConformidade(textFieldConformidade.getText());
                     formulario.setCategoria(textFieldCategoria.getText());
-                    formulario.setEmpresa(Integer.parseInt(textFieldEmpresa.getText()));
-                    formulario.setFuncionario(Integer.parseInt(textFieldFuncionario.getText()));
+                    formulario.setIdEmpresa(Integer.parseInt(textFieldEmpresa.getText()));
+                    formulario.setIdFuncionario(Integer.parseInt(textFieldFuncionario.getText()));
 
 
                     FormularioDao formularioDao = DaoFactory.createFormularioDao();

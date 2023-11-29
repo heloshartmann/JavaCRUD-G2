@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="application.CadastrarFuncionarios">
-  <grid id="27dc6" binding="TelaCadastrarFuncionario" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="application.CadastrarFormularios">
+  <grid id="27dc6" binding="TelaCadastrarFormularios" layout-manager="GridLayoutManager" row-count="10" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="299"/>
@@ -29,7 +29,7 @@
           <text value="Conformidade"/>
         </properties>
       </component>
-      <component id="b33cc" class="javax.swing.JTextField" binding="textFieldNome">
+      <component id="b33cc" class="javax.swing.JTextField" binding="textFieldConformidade">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -45,16 +45,6 @@
           <text value="Categoria"/>
         </properties>
       </component>
-      <component id="d0da0" class="javax.swing.JTextField" binding="textFieldCpf">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
       <component id="6ffdf" class="javax.swing.JLabel">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -63,7 +53,7 @@
           <text value="Empresa"/>
         </properties>
       </component>
-      <component id="2e0ce" class="javax.swing.JTextField" binding="textFieldCargo">
+      <component id="2e0ce" class="javax.swing.JTextField" binding="textFieldIdEmpresa">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -79,7 +69,7 @@
           <text value="Funcionario"/>
         </properties>
       </component>
-      <component id="c2857" class="javax.swing.JTextField" binding="textFieldCidade">
+      <component id="c2857" class="javax.swing.JTextField" binding="textFieldIdFuncionario">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -87,13 +77,21 @@
         </constraints>
         <properties/>
       </component>
-      <component id="17135" class="javax.swing.JButton" binding="cadastrarFuncionarioButton" default-binding="true">
+      <component id="17135" class="javax.swing.JButton" binding="cadastrarFormulariosButton">
         <constraints>
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Cadastrar Formulario"/>
         </properties>
+      </component>
+      <component id="d2939" class="javax.swing.JTextField" binding="textFieldCategoria">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
       </component>
     </children>
   </grid>
