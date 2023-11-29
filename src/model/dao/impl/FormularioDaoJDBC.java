@@ -69,9 +69,7 @@ public class FormularioDaoJDBC implements FormularioDao {
                 return new Formulario(
                         resultSet.getInt("IDformulario"),
                         resultSet.getString("categoria"),
-                        resultSet.getString("conformidade"),
-                        resultSet.getInt("empresa"),
-                        resultSet.getInt("funcionario")
+                        resultSet.getString("conformidade")
                 );
             }
         }catch (SQLException exception) {
@@ -93,9 +91,7 @@ public class FormularioDaoJDBC implements FormularioDao {
                 formulario.add(new Formulario(
                         resultSet.getInt("IDformulario"),
                         resultSet.getString("categoria"),
-                        resultSet.getString("conformidade"),
-                        resultSet.getInt("IDformulario"),
-                        resultSet.getInt("IDformulario")
+                        resultSet.getString("conformidade")
                 ));
             }
         }catch (SQLException exception) {

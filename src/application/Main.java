@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import model.dao.*;
-import model.dao.entites.EmpresaCliente;
-import model.dao.entites.Formulario;
-import model.dao.entites.Funcionario;
-import model.dao.entites.Perguntas;
+import model.dao.entites.*;
 
 public class Main {
 
@@ -52,7 +49,7 @@ public class Main {
                             System.out.println("---Deletar Formulario---");
                             System.out.println("Digite o ID do formulario que deseja excluir: ");
                             int idForm = sc.nextInt();
-                            FormularioDao.deleteById(idForm);
+                            formularioDao.deleteById(idForm);
                             break;
                         case 3:
                             System.out.println("---Atualizar Formulario---");

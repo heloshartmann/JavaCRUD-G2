@@ -28,15 +28,10 @@ public class CadastrarFormularios extends JFrame {
         TelaCadastrarFormularios.add(textFieldCategoria);
 
 
-        JLabel labelIdEmpresa = new JLabel("ID da Empresa:");
+        JLabel labelConformidade = new JLabel("Conformidade:");
         textFieldIdEmpresa = new JTextField(20);
-        TelaCadastrarFormularios.add(labelIdEmpresa);
-        TelaCadastrarFormularios.add(textFieldIdEmpresa);
-
-        JLabel labelIdFuncionario = new JLabel("ID do Funcionário:");
-        textFieldIdFuncionario = new JTextField(20);
-        TelaCadastrarFormularios.add(labelIdFuncionario);
-        TelaCadastrarFormularios.add(textFieldIdFuncionario);
+        TelaCadastrarFormularios.add(labelConformidade);
+        TelaCadastrarFormularios.add(textFieldConformidade);
 
 
         JButton cadastrarFormulariosButton = new JButton("Cadastrar Formulário");
@@ -53,12 +48,8 @@ public class CadastrarFormularios extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String conformidade = textFieldConformidade.getText();
                 String categoria = textFieldCategoria.getText();
-                int idEmpresa = Integer.parseInt(textFieldIdEmpresa.getText());
-                int idFuncionario = Integer.parseInt(textFieldIdFuncionario.getText());
 
-
-
-                Formulario novoFormulario = new Formulario(0, conformidade, categoria,idEmpresa,idFuncionario);
+                Formulario novoFormulario = new Formulario(0, conformidade, categoria);
 
 
                 FormularioDao formularioDao = DaoFactory.createFormularioDao();
