@@ -1,4 +1,4 @@
-package application.CadastrarFormularios;
+package application;
 
 import model.dao.DaoFactory;
 import model.dao.FormularioDao;
@@ -15,8 +15,8 @@ public class CadastrarFormularios extends JFrame {
     private JTextField textFieldCategoria;
     private JTextField textFieldIdEmpresa;
     private JTextField textFieldIdFuncionario;
-    private JButton CadastrarFormulariosButton;
-    private JLabel Cadastrar;
+
+    private JButton cadastrarFormulariosButton;
 
     public CadastrarFormularios() {
         TelaCadastrarFormularios = new JPanel();
@@ -39,18 +39,16 @@ public class CadastrarFormularios extends JFrame {
         TelaCadastrarFormularios.add(textFieldIdFuncionario);
 
 
-
-
-        CadastrarFormulariosButton = new JButton("Cadastrar Formulário");
+        JButton cadastrarFormulariosButton = new JButton("Cadastrar Formulário");
 
 
 
         setTitle("Cadastro de Formularios");
         getContentPane().add(TelaCadastrarFormularios, BorderLayout.CENTER);
-        getContentPane().add(CadastrarFormulariosButton, BorderLayout.SOUTH);
+        getContentPane().add(cadastrarFormulariosButton, BorderLayout.SOUTH);
         pack();
         setLocationRelativeTo(null);
-        CadastrarFormulariosButton.addActionListener(new ActionListener() {
+        cadastrarFormulariosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String conformidade = textFieldConformidade.getText();
