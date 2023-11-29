@@ -2,7 +2,7 @@ package model.dao.entites;
 
 
 public class EmpresaCliente {
-    private int idEmpresa;
+    private int IDempresa;
     private String nomeFantasia;
     private String cnpj;
     private String razaoSocial;
@@ -14,8 +14,11 @@ public class EmpresaCliente {
     // Construtor
 
 
+    public EmpresaCliente() {
+    }
+
     public EmpresaCliente(int idEmpresa, String nomeFantasia, String cnpj, String razaoSocial, String atividade, String porte, String email, String senha) {
-        this.idEmpresa = idEmpresa;
+        this.IDempresa = idEmpresa;
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
@@ -26,11 +29,11 @@ public class EmpresaCliente {
     }
 
     public int getIdEmpresa() {
-        return idEmpresa;
+        return IDempresa;
     }
 
     public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
+        this.IDempresa = idEmpresa;
     }
 
     public String getNomeFantasia() {
@@ -89,4 +92,16 @@ public class EmpresaCliente {
         this.senha = senha;
     }
 
+    @Override
+    public String toString() {
+        return
+                "ID= " + IDempresa +
+                ", NomeFantasia= '" + nomeFantasia + '\'' +
+                ", CNPJ= '" + cnpj + '\'' +
+                ", RazaoSocial= '" + razaoSocial + '\'' +
+                ", Atividade= '" + atividade + '\'' +
+                ", Porte= '" + porte + '\'' +
+                ", Email= '" + email + '\'' +
+                ", Senha= '" + senha + '\'';
+    }
 }

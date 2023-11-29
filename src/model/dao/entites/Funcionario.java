@@ -97,4 +97,18 @@ public class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return
+                "ID= " + IDfuncionario +
+                ", Nome= '" + nome + '\'' +
+                ", Cpf= '" + cpf + '\'' +
+                ", Cargo= '" + cargo + '\'' +
+                ", Cidade= '" + cidade + '\'' +
+                ", Estado= '" + estado + '\'' +
+                ", Email= '" + email + '\'' +
+                ", Telefone= '" + telefone + '\'' +
+                ", Senha= '" + senha + '\'';
+    }
 }
