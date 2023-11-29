@@ -17,12 +17,15 @@ public class Main {
         FormularioDao formularioDao = DaoFactory.createFormularioDao();
         EmpresaClienteDao empresaClienteDao = DaoFactory.createEmpresaClienteDao();
         PerguntasDao perguntasDao = DaoFactory.createPerguntasDao();
+        FuncionarioDao funcionarioDao = DaoFactory.createFuncionarioDao();
 
         int opcao;
         do{
+            System.out.println("Selecione o que deseja gerenciar:");
             System.out.println("1- Gerenciar Formularios");
             System.out.println("2- Gerenciar Empresas");
             System.out.println("3- Gerenciar Perguntas");
+            System.out.println("4- Gerenciar Funcionarios");
             System.out.println("0- Sair");
             opcao = sc.nextInt();
 
@@ -183,6 +186,76 @@ public class Main {
                             List<Perguntas> pergunta = perguntasDao.findAll();
                             for (Perguntas perguntas1 : pergunta){
                                 System.out.println(perguntas1.toString());
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 4:
+                    System.out.println("Selecione o que deseja fazer:");
+                    System.out.println("1- Cadastrar Funcionario");
+                    System.out.println("2- Excluir Funcionario");
+                    System.out.println("3- Atualizar Funcionario");
+                    System.out.println("4- Listar todos Funcionario");
+                    System.out.println("0- Sair");
+                    int escolhaFunc = sc.nextInt();
+                    switch (escolhaFunc){
+                        case 1:
+                            System.out.println("---Novo Funcionario---");
+                            Funcionario funcionario = new Funcionario();
+                            System.out.println("Digite o nome: ");
+                            funcionario.setNome(sc.next());
+                            System.out.println("Digite o CPF: ");
+                            funcionario.setCpf(sc.next());
+                            System.out.println("Digite o cargo: ");
+                            funcionario.setCargo(sc.next());
+                            System.out.println("Digite o telefone: ");
+                            funcionario.setTelefone(sc.next());
+                            System.out.println("Digite o estado: ");
+                            funcionario.setEstado(sc.next());
+                            System.out.println("Digite a cidade: ");
+                            funcionario.setCidade(sc.next());
+                            System.out.println("Digite o email: ");
+                            funcionario.setEmail(sc.next());
+                            System.out.println("Digite a senha: ");
+                            funcionario.setSenha(sc.next());
+                            funcionarioDao.insert(funcionario);
+                            break;
+                        case 2:
+                            System.out.println("---Deletar Funcionario---");
+                            System.out.println("Digite o ID do funcionario que deseja excluir: ");
+                            int idFunc = sc.nextInt();
+                            funcionarioDao.deleteById(idFunc);
+                            break;
+                        case 3:
+                            System.out.println("---Atualizar Funcionario---");
+                            Funcionario funcionario2 = new Funcionario();
+                            System.out.println("Digite o ID do funcionario que deseja atualizar: ");
+                            funcionario2.setIDfuncionario(sc.nextInt());
+                            System.out.println("Digite o nome: ");
+                            funcionario2.setNome(sc.next());
+                            System.out.println("Digite o CPF: ");
+                            funcionario2.setCpf(sc.next());
+                            System.out.println("Digite o cargo: ");
+                            funcionario2.setCargo(sc.next());
+                            System.out.println("Digite o telefone: ");
+                            funcionario2.setTelefone(sc.next());
+                            System.out.println("Digite o estado: ");
+                            funcionario2.setEstado(sc.next());
+                            System.out.println("Digite a cidade: ");
+                            funcionario2.setCidade(sc.next());
+                            System.out.println("Digite o email: ");
+                            funcionario2.setEmail(sc.next());
+                            System.out.println("Digite a senha: ");
+                            funcionario2.setSenha(sc.next());
+                            funcionarioDao.update(funcionario2);
+                            break;
+                        case 4:
+                            System.out.println("---Todos os Funcionario---");
+                            List<Funcionario> funcionarios = funcionarioDao.findAll();
+                            for (Funcionario funcionario1 : funcionarios){
+                                System.out.println(funcionario1.toString());
                             }
                             break;
                         default:
