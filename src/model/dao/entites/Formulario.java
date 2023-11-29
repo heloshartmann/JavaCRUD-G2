@@ -5,7 +5,7 @@ public class Formulario {
     private String conformidade;
     private String categoria;
 
-    public Formulario(int iDformulario, String categoria, String conformidade, String idEmpresa, int idFuncioario) {
+    public Formulario(int IDformulario, String categoria, String conformidade) {
     }
 
     public Formulario(int IDformulario, String conformidade, String categoria) {
